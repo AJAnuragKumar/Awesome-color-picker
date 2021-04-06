@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>HTML</title>
+  
+  <!-- HTML -->
+  
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="style.css">
+<style>
+@font-face{
+  font-family: myFont;
+  src: cursive;
+}
+body {
+    font-size: 15pt;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+   font-family: myFont;
+}
+*{
+  margin:0;
+  padding: 0;
+}
+input,.colors,button{
+  height: 50px;
+  width: 356px;
+  font-size: 23px;
+  letter-spacing: 1px;
+  border: 3px solid #7153FF;
+  text-indent: 10px;
+  font-weight: bolder;
+  outline: none;
+  background: white;
+  border-radius: 5px;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+.colors{
+  background: #7153FF;
+  outline: none;
+}
+button{
+  background: #FF5E53;
+  background: #0CCAFF;
+  color: white;
+}
+.suggestions{
+  display: flex;
+  flex-direction: column;
+  background: #7153FF;
+  height: 0px;
+  border-radius: 5px;
+  overflow: hidden;
+  -webkit-appearance: none;
+  outline: none;
+  transition: 0.1s ease-in-out;
+  justify-content: space-between;
+ 
+}
+
+.height{
+  height: 110px;
+  transform: scale(1.02);
+}
+button,.tex,.heading{
+  box-shadow: inset 2px 3px 5px white,inset -2px -2px 5px #515155;
+}
+button:hover,.heading:hover{
+ box-shadow:inset 2px 2px 5px black,inset -3px -3px 5px white; 
+}
+.tex:hover{
+  box-shadow:inset 2px 2px 5px #232325,inset -2px -3px 5px #D7D8E0; 
+}
+.heading:hover{
+ box-shadow:inset 2px 2px 5px black,inset -1px -1px 5px white;   
+}
+span{
+  font-family: fantasy;
+  font-weight: bolder;
+  text-align: center;
+  margin-bottom: 15px;
+ color: white;
+ font-size: 35px;
+ letter-spacing: 5px;
+ text-transform: uppercase;
+}
+.heading{
+  height: 50px;
+  width: 356px;
+  border-radius: 5px;
+  background: #7153FF;
+  display: flex;
+  text-indent: 4px;
+  align-items: center;
+  justify-content: space-around;
+  border:3px solid #45f;
+  font-size: 23px;
+  color: #fff;
+  font-weight: bolder;
+}
+@media screen 
+and (min-width: 720px){
+
+ body {
+
+ background-color: skyblue;
+ }
+ .heading,.tex,button,.colors{
+   width: 800px;
+   height: 100px;
+   font-size: 250%;
+   text-indent: 0%;
+ }
+ input,.tex{
+  text-indent: 5%;
+ }
+ .suggestions{
+   width: 800px;
+   display: flex;
+   align-items: center;
+ }
+ .height{
+   height: 200px;
+ }
+ span{
+   font-size: 300%;
+ }
+}
+</style>
+</head>
+
+<body>
+  <div class="heading">
+    <p>AWESOME COLOR PICKER🎨</p>
+  </div>
+  <br />
+  <input type="text" oninput="color()". minlength="0" maxlength="20" class="tex" placeholder="ENTER YOUR COLOR..." autofocus="true"/>
+  <br />
+  <button type="button" onclick="h()"  >SUGGESTION</button>
+  <br />
+  
+  <div class="suggestions">
+  <input type="color" class="colors" oninput="co()"/>
+
+  <span>#000000</span>
+  </div>
+  
+  <!-- Project -->
+  <script src="main.js">
+</script>
+<script>
+let body = document.querySelector('body');
+function color(){
+  let col=document.querySelector('input');
+ let val = col.value;
+ col.style.color=val;
+ body.style.background=val;
+}
+function co(){
+  let colors=document.querySelector('.colors');
+  let main = colors.value;
+  let span = document.querySelector('span');
+  span.innerHTML=main;
+
+}
+function h(){
+  let suggest = document.querySelector('.suggestions');
+  suggest.classList.toggle('height');
+}
+console.log(screen.availWidth);
+console.log(screen.availHeight);
+</script>
+</body>
+</html>
